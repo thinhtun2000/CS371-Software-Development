@@ -1,4 +1,4 @@
-<project name="webserver1.0" default="compile" basedir=".">
+<project name="webserver1.0" default="run" basedir=".">
     <description>
         Buildfile for SimpleWebServer
     </description>
