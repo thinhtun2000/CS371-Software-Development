@@ -79,7 +79,7 @@ public class WebWorker implements Runnable
 				{
 					writeHTTPHeader(os, "image/png");
 				}
-				else if (filet.equals("jpg"))
+				else if (filet.equals("jpeg"))
 				{
 					writeHTTPHeader(os, "image/jpeg");
 				}
@@ -158,17 +158,7 @@ public class WebWorker implements Runnable
 	 **/
 	private void writeHTTPHeader(OutputStream os, String contentType) throws Exception
 	{
-		//Date d = new Date();
-		//DateFormat df = DateFormat.getDateTimeInstance();
-		//df.setTimeZone(TimeZone.getTimeZone("GMT"));
 		os.write("HTTP/1.1 200 OK\n".getBytes());
-		//os.write("Date: ".getBytes());
-		//os.write((df.format(d)).getBytes());
-		//os.write("\n".getBytes());
-		//os.write("Server: Jon's very own server\n".getBytes());
-		// os.write("Last-Modified: Wed, 08 Jan 2003 23:11:55 GMT\n".getBytes());
-		// os.write("Content-Length: 438\n".getBytes());
-		//os.write("Connection: close\n".getBytes());
 		os.write("Content-Type: ".getBytes());
 		os.write(contentType.getBytes());
 		os.write("\n\n".getBytes()); // HTTP header ends with 2 newlines
@@ -190,8 +180,8 @@ public class WebWorker implements Runnable
 			//output the html file
 			BufferedReader b = new BufferedReader(new FileReader(file));
 			String s;
-		   DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
-         LocalDateTime now = LocalDateTime.now();  
+			DateTimeFormatter dtf = DateTimeFormatter.ofPattern("yyyy/MM/dd HH:mm:ss");  
+			LocalDateTime now = LocalDateTime.now();  
            
          while((s = b.readLine()) != null)
 			{
